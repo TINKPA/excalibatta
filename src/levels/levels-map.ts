@@ -13,6 +13,7 @@ import { Level_2_4 } from './level-2-4';
 export type LevelKey = keyof typeof levelsMap;
 
 export type LevelData = {
+  id: any;
   theme: LevelTheme;
   timeAvailable: number;
   tilesWidth: number;

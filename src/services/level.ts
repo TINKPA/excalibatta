@@ -1,6 +1,6 @@
 import { Actor, Canvas, Color, Scene, vec } from 'excalibur';
 
-import { CELL_SIZE, THEME_BACKGROUNDS, THEME_TILES_MAP, ThemeTiles } from '../helpers/consts';
+import { CELL_SIZE, PLACEMENT_TYPE_AGENT, THEME_BACKGROUNDS, THEME_TILES_MAP, ThemeTiles } from '../helpers/consts';
 import { Clock } from '../services/clock';
 import { Game } from './game';
 import { GameObject } from '../game-objects/game-object';
@@ -10,6 +10,8 @@ import { LevelData } from '../levels/levels-map';
 import { Player } from '../game-objects/player';
 import { Resources } from './resources';
 import { GAME_EVENTS } from '../helpers/events';
+import { PathLoader } from './path-loader';
+import { Agent } from '../game-objects/agent';
 
 export class Level extends Scene {
   private clock!: Clock;
@@ -91,13 +93,24 @@ export class Level extends Scene {
   placeGameObjects(): void {
     this.data.placements.forEach((gameObject) => {
       const { type, x, y, ...data } = gameObject;
-      if (isKeyOfPlacementTypeClassMap(type)) {
-        this.add(new placementTypeClassMap[type](vec(x, y), this, type, data));
+      if (type === PLACEMENT_TYPE_AGENT) {
+        console.log('Agent placement detected at coordinates:', x, y);
+        const path = PathLoader.getPath(this.data.id);
+        console.log('Path:', path);
+        this.add(new Agent(vec(x, y), this, type, path));
+      } else if (isKeyOfPlacementTypeClassMap(type)) {
+        const position = vec(x, y);
+        const positions = [{ x, y }];
+        this.add(new placementTypeClassMap[type](position, this, type, positions));
       }
     });
   }
 
-  onInitialize(): void {
+  async onInitialize(): Promise<void> {
+
+    
+    await PathLoader.loadPaths(this.data);
+    
     this.add(this.generateBackground());
     this.engine.backgroundColor = Color.fromHex(THEME_BACKGROUNDS[this.data.theme]);
 
@@ -108,8 +121,8 @@ export class Level extends Scene {
     this.camera.pos = vec(CELL_SIZE * 8, CELL_SIZE * 8.5); // Center of initial view
     this.camera.zoom = 0.5;
 
-    this.clock = new Clock(this.data.timeAvailable, this);
-    this.add(this.clock);
+    // this.clock = new Clock(this.data.timeAvailable, this);
+    // this.add(this.clock);
 
     Game.getInstance().emit(GAME_EVENTS.LEVEL_START, {});
   }

@@ -1,5 +1,5 @@
 // import { DevTool } from '@excaliburjs/dev-tools';
-import { Color, DisplayMode, Engine } from 'excalibur';
+import { Color, DisplayMode, Engine, Actor } from 'excalibur';
 
 import { CELL_SIZE, IS_DEBUG, SKIP_LOADER, THEME_BACKGROUNDS } from '../helpers/consts';
 import { Level } from './level';

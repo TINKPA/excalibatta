@@ -21,6 +21,7 @@ import { Thief } from '../game-objects/thief';
 import { Wall } from '../game-objects/wall';
 import { WaterPickup } from '../game-objects/water-pickup';
 import { WaterTile } from '../game-objects/water-tile';
+import { Agent } from '../game-objects/agent';
 import {
   PLACEMENT_TYPE_CELEBRATION,
   PLACEMENT_TYPE_CONVEYOR,
@@ -45,6 +46,7 @@ import {
   PLACEMENT_TYPE_WALL,
   PLACEMENT_TYPE_WATER_PICKUP,
   PLACEMENT_TYPE_WATER,
+  PLACEMENT_TYPE_AGENT,
 } from './consts';
 
 export const placementTypeClassMap = {
@@ -71,6 +73,7 @@ export const placementTypeClassMap = {
   [PLACEMENT_TYPE_SWITCH]: DoorSwitch,
   [PLACEMENT_TYPE_TELEPORT]: Teleport,
   [PLACEMENT_TYPE_THIEF]: Thief,
+  [PLACEMENT_TYPE_AGENT]: Agent,
   // [PLACEMENT_TYPE_CIABATTA]: Ciabatta,
 } as const;
 

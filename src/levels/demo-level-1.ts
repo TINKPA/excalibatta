@@ -22,11 +22,13 @@ import {
   PLACEMENT_TYPE_FLYING_ENEMY,
   PLACEMENT_TYPE_ROAMING_ENEMY,
   PLACEMENT_TYPE_THIEF,
+  PLACEMENT_TYPE_AGENT,
   //PLACEMENT_TYPE_CIABATTA,
 } from '../helpers/consts';
 import { LevelData } from './levels-map';
 
 export const Demo_Level_1: LevelData = {
+  id: 'demo-level-1',
   theme: LEVEL_THEMES.GREEN,
   timeAvailable: 99,
   tilesWidth: 20,
@@ -40,6 +42,8 @@ export const Demo_Level_1: LevelData = {
 
     { x: 3, y: 2, type: PLACEMENT_TYPE_TELEPORT },
     { x: 7, y: 6, type: PLACEMENT_TYPE_TELEPORT },
+
+    { x: 1, y: 1, type: PLACEMENT_TYPE_AGENT },
 
     { x: 4, y: 3, type: PLACEMENT_TYPE_SWITCH_DOOR, isRaised: true },
     { x: 5, y: 3, type: PLACEMENT_TYPE_SWITCH_DOOR, isRaised: false },

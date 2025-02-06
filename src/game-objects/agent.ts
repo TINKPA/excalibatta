@@ -14,10 +14,10 @@ import {
   FourDirections,
 } from '../helpers/consts';
 import { TileMover } from '../systems/tile-mover';
-import { UserController } from '../systems/user-controller';
+import { AgentController } from '../systems/agent-controller';
 
-export class Player extends GameObject {
-  private controller: UserController;
+export class Agent extends GameObject {
+  private controller: AgentController;
   private direction: typeof DIRECTION_LEFT | typeof DIRECTION_RIGHT;
   private spriteWalkFrame: 0 | 1;
 
@@ -38,7 +38,7 @@ export class Player extends GameObject {
     this.canCompleteLevel = true;
 
     this.mover = new TileMover(this);
-    this.controller = new UserController(this);
+    this.controller = new AgentController(this);
   }
 
   onInitialize(): void {

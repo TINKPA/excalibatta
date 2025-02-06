@@ -4,11 +4,15 @@ import { DIRECTION_DOWN, DIRECTION_LEFT, DIRECTION_RIGHT, DIRECTION_UP, FourDire
 import { GreenLock } from '../game-objects/green-lock';
 import { BlueLock } from '../game-objects/blue-lock';
 
-export class UserController {
+export class AgentController {
   gameObject: GameObject;
+  lastChangeTime: number;
+  randomDirection: FourDirections
 
   constructor(gameObject: GameObject) {
     this.gameObject = gameObject;
+    this.lastChangeTime = 0;
+    this.randomDirection = DIRECTION_RIGHT;
   }
 
   requestMovement(direction: FourDirections) {
@@ -43,25 +47,18 @@ export class UserController {
   }
 
   update(engine: Engine) {
-    // if (engine.input.keyboard.isHeld(Input.Keys.ArrowLeft)) {
-    //   this.requestMovement(DIRECTION_LEFT);
-    // }
-    // if (engine.input.keyboard.isHeld(Input.Keys.ArrowRight)) {
-    //   this.requestMovement(DIRECTION_RIGHT);
-    // }
-    // if (engine.input.keyboard.isHeld(Input.Keys.ArrowUp)) {
-    //   this.requestMovement(DIRECTION_UP);
-    // }
-    // if (engine.input.keyboard.isHeld(Input.Keys.ArrowDown)) {
-    //   this.requestMovement(DIRECTION_DOWN);
-    // }
     const directions: FourDirections[] = [
       DIRECTION_LEFT, 
       DIRECTION_RIGHT, 
       DIRECTION_UP, 
       DIRECTION_DOWN
     ];
-    const randomDirection: FourDirections = directions[Math.floor(Math.random() * directions.length)];
-    this.requestMovement(randomDirection);
+    
+    if (engine.clock.now() - this.lastChangeTime > 500) {
+      this.randomDirection = directions[Math.floor(Math.random() * directions.length)];
+      this.lastChangeTime = engine.clock.now();
+    }
+
+    this.requestMovement(this.randomDirection);
   }
 }
