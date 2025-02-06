@@ -4,6 +4,7 @@ import { Color, DisplayMode, Engine } from 'excalibur';
 import { CELL_SIZE, IS_DEBUG, SKIP_LOADER, THEME_BACKGROUNDS } from '../helpers/consts';
 import { Level } from './level';
 import { LevelManager } from './level-manager';
+import { DevTool } from '@excaliburjs/dev-tools';
 
 export class Game extends Engine {
   private static instance: Game;
@@ -28,7 +29,7 @@ export class Game extends Engine {
 
     if (IS_DEBUG) {
       this.showDebug(true);
-      // new DevTool(this);
+      new DevTool(this);
     }
   }
 

@@ -21,10 +21,41 @@ Stack:
 
 **Note:** This version still uses React, but only for the UI
 
-## Learning objective
+## Usage
 
-This isn't a complete game. It was a prototype of how well Excalibur and React could play together.
+To run the game locally, follow these steps:
 
-## TODO
+1. **Clone the repository:**
 
-More levels and everything listed in the Github issue tracker.
+   ```bash
+   git clone https://github.com/yourusername/excalibatta.git
+   cd excalibatta
+   ```
+
+2. **Install dependencies:**
+
+   Make sure you have [Node.js](https://nodejs.org/) installed, then run:
+
+   ```bash
+   npm install
+   ```
+
+3. **Run the development server:**
+
+   Start the development server with:
+
+   ```bash
+   npm run dev
+   ```
+
+   This will start the server and you can view the game in your browser at `http://localhost:3000`.
+
+4. **Build for production:**
+
+   To create a production build, run:
+
+   ```bash
+   npm run build
+   ```
+
+   The build will be output to the `dist` directory.

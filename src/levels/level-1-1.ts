@@ -4,8 +4,8 @@ import { LevelData } from './levels-map';
 export const Level_1_1: LevelData = {
   theme: 'BLUE',
   timeAvailable: 99,
-  tilesWidth: 9,
-  tilesHeight: 3,
+  tilesWidth: 16,
+  tilesHeight: 16,
   placements: [
     {
       type: PLACEMENT_TYPE_HERO,

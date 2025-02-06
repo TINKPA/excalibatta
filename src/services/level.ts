@@ -103,7 +103,10 @@ export class Level extends Scene {
 
     this.placeGameObjects();
 
-    this.camera.strategy.lockToActor(this.getPlayer());
+    // this.camera.strategy.lockToActor(this.getPlayer());
+
+    this.camera.pos = vec(CELL_SIZE * 8, CELL_SIZE * 8.5); // Center of initial view
+    this.camera.zoom = 0.5;
 
     this.clock = new Clock(this.data.timeAvailable, this);
     this.add(this.clock);
