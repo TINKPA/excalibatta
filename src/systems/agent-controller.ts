@@ -1,4 +1,4 @@
-import { Engine } from 'excalibur';
+import { Engine, Input } from 'excalibur';
 import { GameObject } from '../game-objects/game-object';
 import { DIRECTION_DOWN, DIRECTION_LEFT, DIRECTION_RIGHT, DIRECTION_UP, FourDirections } from '../helpers/consts';
 import { GreenLock } from '../game-objects/green-lock';
@@ -47,18 +47,17 @@ export class AgentController {
   }
 
   update(engine: Engine) {
-    const directions: FourDirections[] = [
-      DIRECTION_LEFT, 
-      DIRECTION_RIGHT, 
-      DIRECTION_UP, 
-      DIRECTION_DOWN
-    ];
-    
-    if (engine.clock.now() - this.lastChangeTime > 500) {
-      this.randomDirection = directions[Math.floor(Math.random() * directions.length)];
-      this.lastChangeTime = engine.clock.now();
+    if (engine.input.keyboard.isHeld(Input.Keys.ArrowLeft)) {
+      this.requestMovement(DIRECTION_LEFT);
     }
-
-    this.requestMovement(this.randomDirection);
+    if (engine.input.keyboard.isHeld(Input.Keys.ArrowRight)) {
+      this.requestMovement(DIRECTION_RIGHT);
+    }
+    if (engine.input.keyboard.isHeld(Input.Keys.ArrowUp)) {
+      this.requestMovement(DIRECTION_UP);
+    }
+    if (engine.input.keyboard.isHeld(Input.Keys.ArrowDown)) {
+      this.requestMovement(DIRECTION_DOWN);
+    }
   }
 }
