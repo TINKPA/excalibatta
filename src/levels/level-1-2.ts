@@ -1,11 +1,12 @@
-import { PLACEMENT_TYPE_FLOUR, PLACEMENT_TYPE_GOAL, PLACEMENT_TYPE_HERO, PLACEMENT_TYPE_WALL } from '../helpers/consts';
+import { LEVEL_THEMES, PLACEMENT_TYPE_FLOUR, PLACEMENT_TYPE_GOAL, PLACEMENT_TYPE_HERO, PLACEMENT_TYPE_WALL } from '../helpers/consts';
 import { LevelData } from './levels-map';
 
 export const Level_1_2: LevelData = {
-  theme: 'BLUE',
-  timeAvailable: 99,
-  tilesWidth: 9,
-  tilesHeight: 3,
+  id: 'level-1-2',
+  theme: LEVEL_THEMES.BLUE,
+  timeAvailable: 60,
+  tilesWidth: 10,
+  tilesHeight: 10,
   placements: [
     {
       type: PLACEMENT_TYPE_HERO,

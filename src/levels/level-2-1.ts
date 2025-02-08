@@ -8,11 +8,13 @@ import {
   PLACEMENT_TYPE_LOCK_GREEN,
   PLACEMENT_TYPE_THIEF,
   PLACEMENT_TYPE_WALL,
+  LEVEL_THEMES,
 } from '../helpers/consts';
 import { LevelData } from './levels-map';
 
 export const Level_2_1: LevelData = {
-  theme: 'GREEN',
+  id: 'level-2-1',
+  theme: LEVEL_THEMES.GREEN,
   timeAvailable: 99,
   tilesWidth: 9,
   tilesHeight: 5,

@@ -1,7 +1,6 @@
 import { Actor, Canvas, Color, Scene, vec } from 'excalibur';
 
 import { CELL_SIZE, PLACEMENT_TYPE_AGENT, THEME_BACKGROUNDS, THEME_TILES_MAP, ThemeTiles } from '../helpers/consts';
-import { Clock } from '../services/clock';
 import { Game } from './game';
 import { GameObject } from '../game-objects/game-object';
 import { Inventory } from '../services/inventory';
@@ -14,7 +13,6 @@ import { PathLoader } from './path-loader';
 import { Agent } from '../game-objects/agent';
 
 export class Level extends Scene {
-  private clock!: Clock;
   private data: LevelData;
   private heightWithWalls: number;
   private tiles: ThemeTiles;
@@ -92,12 +90,10 @@ export class Level extends Scene {
 
   placeGameObjects(): void {
     this.data.placements.forEach((gameObject) => {
-      const { type, x, y, ...data } = gameObject;
+      const { type, x, y } = gameObject;
       if (type === PLACEMENT_TYPE_AGENT) {
-        console.log('Agent placement detected at coordinates:', x, y);
-        const path = PathLoader.getPath(this.data.id);
-        console.log('Path:', path);
-        this.add(new Agent(vec(x, y), this, type, path));
+        const path = PathLoader.getPath(this.data.id) as unknown as string;
+        this.add(new Agent(vec(x, y), this, path));
       } else if (isKeyOfPlacementTypeClassMap(type)) {
         const position = vec(x, y);
         const positions = [{ x, y }];

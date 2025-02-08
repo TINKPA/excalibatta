@@ -10,6 +10,7 @@ import {
 import { LevelData } from './levels-map';
 
 export const Level_2_2: LevelData = {
+  id: 'level-2-2',
   theme: 'GREEN',
   timeAvailable: 99,
   tilesWidth: 9,

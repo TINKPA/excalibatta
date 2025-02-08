@@ -1,4 +1,4 @@
-import { Engine, Input } from 'excalibur';
+import { Engine } from 'excalibur';
 import { GameObject } from '../game-objects/game-object';
 import { DIRECTION_DOWN, DIRECTION_LEFT, DIRECTION_RIGHT, DIRECTION_UP, FourDirections } from '../helpers/consts';
 import { GreenLock } from '../game-objects/green-lock';

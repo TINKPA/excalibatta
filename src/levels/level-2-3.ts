@@ -4,14 +4,16 @@ import {
   PLACEMENT_TYPE_GROUND_ENEMY,
   PLACEMENT_TYPE_HERO,
   PLACEMENT_TYPE_WALL,
+  LEVEL_THEMES,
 } from '../helpers/consts';
 import { LevelData } from './levels-map';
 
 export const Level_2_3: LevelData = {
-  theme: 'GREEN',
-  timeAvailable: 99,
-  tilesWidth: 9,
-  tilesHeight: 9,
+  id: 'level-2-3',
+  theme: LEVEL_THEMES.GREEN,
+  timeAvailable: 60,
+  tilesWidth: 10,
+  tilesHeight: 10,
   placements: [
     {
       type: PLACEMENT_TYPE_HERO,

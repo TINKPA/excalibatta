@@ -9,11 +9,13 @@ import {
   PLACEMENT_TYPE_SWITCH,
   PLACEMENT_TYPE_SWITCH_DOOR,
   PLACEMENT_TYPE_WALL,
+  LEVEL_THEMES,
 } from '../helpers/consts';
 import { LevelData } from './levels-map';
 
 export const Level_1_4: LevelData = {
-  theme: 'BLUE',
+  id: 'level-1-4',
+  theme: LEVEL_THEMES.BLUE,
   timeAvailable: 99,
   tilesWidth: 12,
   tilesHeight: 3,

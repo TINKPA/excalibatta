@@ -1,4 +1,4 @@
-import { Engine, Input } from 'excalibur';
+// import { Engine } from 'excalibur';
 import { GameObject } from '../game-objects/game-object';
 import { DIRECTION_DOWN, DIRECTION_LEFT, DIRECTION_RIGHT, DIRECTION_UP, FourDirections } from '../helpers/consts';
 import { GreenLock } from '../game-objects/green-lock';
@@ -42,19 +42,7 @@ export class UserController {
     this.gameObject.startMoving(direction);
   }
 
-  update(engine: Engine) {
-    // if (engine.input.keyboard.isHeld(Input.Keys.ArrowLeft)) {
-    //   this.requestMovement(DIRECTION_LEFT);
-    // }
-    // if (engine.input.keyboard.isHeld(Input.Keys.ArrowRight)) {
-    //   this.requestMovement(DIRECTION_RIGHT);
-    // }
-    // if (engine.input.keyboard.isHeld(Input.Keys.ArrowUp)) {
-    //   this.requestMovement(DIRECTION_UP);
-    // }
-    // if (engine.input.keyboard.isHeld(Input.Keys.ArrowDown)) {
-    //   this.requestMovement(DIRECTION_DOWN);
-    // }
+  update(): void {
     const directions: FourDirections[] = [
       DIRECTION_LEFT, 
       DIRECTION_RIGHT, 

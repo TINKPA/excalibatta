@@ -1,4 +1,4 @@
-import { Animation, Engine, Sprite, SpriteSheet, Vector, vec } from 'excalibur';
+import { Animation, Sprite, SpriteSheet, Vector, vec } from 'excalibur';
 
 import { GameObject } from './game-object';
 import { Level } from '../services/level';
@@ -124,9 +124,9 @@ export class Player extends GameObject {
     return -2;
   }
 
-  onPreUpdate(engine: Engine): void {
+  onPreUpdate(): void {
     this.mover.earlyUpdate();
-    this.controller.update(engine);
+    this.controller.update();
     this.mover.lateUpdate();
   }
 

@@ -1,4 +1,4 @@
-import { PLACEMENT_TYPE_HERO, PLACEMENT_TYPE_GOAL, PLACEMENT_TYPE_WALL, PLACEMENT_TYPE_AGENT, PLACEMENT_TYPE_FLOUR, PLACEMENT_TYPE_GROUND_ENEMY } from '../helpers/consts';
+import { PLACEMENT_TYPE_HERO, PLACEMENT_TYPE_WALL, PLACEMENT_TYPE_AGENT, PLACEMENT_TYPE_FLOUR } from '../helpers/consts';
 import { LevelData } from './levels-map';
 
 export const Level_1_1: LevelData = {
