@@ -18,21 +18,21 @@ export const Level_1_1: LevelData = {
       x: 3,
       y: 3,
     },
-    // {
-    //   type: PLACEMENT_TYPE_HERO,
-    //   x: 3,
-    //   y: 3,
-    // },
-    // {
-    //   type: PLACEMENT_TYPE_HERO,
-    //   x: 3,
-    //   y: 3,
-    // },
-    // {
-    //   type: PLACEMENT_TYPE_HERO,
-    //   x: 3,
-    //   y: 3,
-    // },
+    {
+      type: PLACEMENT_TYPE_HERO,
+      x: 6,
+      y: 6,
+    },
+    {
+      type: PLACEMENT_TYPE_HERO,
+      x: 9,
+      y: 12,
+    },
+    {
+      type: PLACEMENT_TYPE_HERO,
+      x: 13,
+      y: 13,
+    },
     // {
     //   type: PLACEMENT_TYPE_HERO,
     //   x: 3,
